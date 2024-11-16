@@ -4,10 +4,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import render
+
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import UserProfile
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import permission_required
 
 
 def is_admin(user):
