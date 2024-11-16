@@ -5,7 +5,7 @@ from .models import Author, Book, Library, Librarian
 
 def query_books_by_author(author_name):
     try:
-        author = Author.objects.get(name=author_name)
+        author = Author.objects.filter(author=author)
         books = author.books.all()
         print(f"Books by {author_name}:")
         for book in books:
