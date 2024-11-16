@@ -6,6 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import UserProfile
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required, permission_required
+
 
 def is_admin(user):
     return user.userprofile.role == 'Admin'
@@ -58,3 +61,36 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return render(request, 'relationship_app/templates/logout.html')
+
+
+
+@login_required
+@permission_required('relationship_app.can_add_book')
+def add_book(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        author_id = request.POST['author']
+        author = get_object_or_404(Author, pk=author_id)
+        Book.objects.create(title=title, author=author)
+        return redirect('list_books')
+    return render(request, 'add_book.html')
+
+@login_required
+@permission_required('relationship_app.can_change_book')
+def edit_book(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    if request.method == 'POST':
+        book.title = request.POST['title']
+        book.author_id = request.POST['author']
+        book.save()
+        return redirect('list_books')
+    return render(request, 'edit_book.html', {'book': book})
+
+@login_required
+@permission_required('relationship_app.can_delete_book')
+def delete_book(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    if request.method == 'POST':
+        book.delete()
+        return redirect('list_books')
+    return render(request, 'delete_book.html', {'book': book})
