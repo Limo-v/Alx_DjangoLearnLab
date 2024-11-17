@@ -68,6 +68,8 @@ SECURE_BROWSER_XSS_FILTER = True
 
 # Prevent rendering in a frame
 X_FRAME_OPTIONS = 'DENY'
+SECURE_CONTENT_TYPE_NOSNIFF = TrueSECURE_BROWSER_XSS_FILTER = True
+
 
 # Ensure cookies are only sent over secure connections
 CSRF_COOKIE_SECURE = True
@@ -147,3 +149,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 UTH_USER_MODEL = 'bookshelf.CustomUser'
+
+SECURE_SSL_REDIRECT = True
+
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
