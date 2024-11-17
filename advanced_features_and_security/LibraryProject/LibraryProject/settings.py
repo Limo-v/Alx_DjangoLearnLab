@@ -69,7 +69,8 @@ SECURE_BROWSER_XSS_FILTER = True
 # Prevent rendering in a frame
 X_FRAME_OPTIONS = 'DENY'
 SECURE_CONTENT_TYPE_NOSNIFF = TrueSECURE_BROWSER_XSS_FILTER = True
-
+SECURE_PROXY_SSL_HEADER=""
+HTTP_X_FORWARDED_PROTO=""
 
 # Ensure cookies are only sent over secure connections
 CSRF_COOKIE_SECURE = True
