@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Book
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseBadRequest
-from .forms import BookForm  # Assume you have a form for Book
+from .forms import ExampleForm # Assume you have a form for Book
 
 @login_required
 def book_list(request):
@@ -12,12 +12,12 @@ def book_list(request):
 @login_required
 def book_create(request):
     if request.method == 'POST':
-        form = BookForm(request.POST)
+        form = ExampleForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('book_list')
     else:
-        form = BookForm()
+        form = ExampleForm()
     return render(request, 'bookshelf/form_example.html', {'form': form})
 
 @login_required
