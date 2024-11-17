@@ -60,6 +60,16 @@ CSP_DEFAULT_SRC = ("'self'",)
 CSP_SCRIPT_SRC = ("'self'", 'https://mydomain.com')
 CSP_STYLE_SRC = ("'self'", 'https://mydomain.com')
 
+# Setting DEBUG to False to prevent exposure of sensitive information in production
+DEBUG = False
+
+# Enable browser XSS filter
+SECURE_BROWSER_XSS_FILTER = True
+
+# Prevent rendering in a frame
+X_FRAME_OPTIONS = 'DENY'
+
+# Ensure cookies are only sent over secure connections
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
