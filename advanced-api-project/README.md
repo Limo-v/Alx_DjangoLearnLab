@@ -13,3 +13,20 @@ This project implements a RESTful API for managing books and authors using Djang
 ## Permissions
 - List and detail views are accessible to all users.
 - Create, update, and delete views are restricted to authenticated users.
+
+## Filtering, Searching, and Ordering
+
+The API allows users to filter, search, and order books based on various criteria.
+
+### Filtering
+- **Filter by title**: `?title=Sample Book`
+- **Filter by author**: `?author__name=John Doe`
+- **Filter by publication year**: `?publication_year=2022`
+
+### Searching
+- **Search in title and author name**: `?search=Sample`
+
+### Ordering
+- **Order by title**: `?ordering=title`
+- **Order by publication year**: `?ordering=publication_year`
+- **Order by publication year descending**: `?ordering=-publication_year`
