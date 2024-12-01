@@ -3,6 +3,7 @@ from rest_framework.test import APITestCase
 from django.urls import reverse
 from .models import Book, Author
 from django.contrib.auth.models import User
+from rest_framework import status
 
 class BookAPITests(APITestCase):
 
