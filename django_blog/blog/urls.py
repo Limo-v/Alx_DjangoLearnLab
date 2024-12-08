@@ -17,4 +17,5 @@ path('post/<int:pk>/comments/new/', CommentCreateView.as_view(), name='add-comme
     path('comment/<int:pk>/delete/', CommentDeleteView.as_view(), name='comment-delete'),
 path('search/', search, name='search'),
     path('tags/<str:tag_name>/', TaggedPostListView.as_view(), name='tagged-posts'),
+    path('tags/<slug:tag_slug>/', PostByTagListView.as_view(), name='tagged-posts'),
 ]
