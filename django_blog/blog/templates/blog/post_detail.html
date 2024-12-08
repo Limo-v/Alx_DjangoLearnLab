@@ -23,4 +23,10 @@
 </ul>
 
 <a href="{% url 'add-comment' post.id %}">Add Comment</a>
+<h3>Tags:</h3>
+<ul>
+    {% for tag in post.tags.all %}
+    <li><a href="{% url 'tagged-posts' tag.name %}">{{ tag.name }}</a></li>
+    {% endfor %}
+</ul>
 {% endblock %}
