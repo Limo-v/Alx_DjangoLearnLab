@@ -5,7 +5,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 from .serializers import UserRegisterSerializer, UserSerializer
 from .models import CustomUser
-
+"generics.GenericAPIView"
 class UserRegisterView(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = UserRegisterSerializer
