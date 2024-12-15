@@ -3,7 +3,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
 "Post.objects.filter(author__in=following_users).order_by"
-
+"generics.get_object_or_404(Post, pk=pk)"
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
